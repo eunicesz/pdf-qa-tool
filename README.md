@@ -29,6 +29,18 @@
 5. 设置主文件为 `main.py`
 6. 点击部署
 
+#### 部署故障排除
+
+如果遇到依赖安装错误，请确保：
+- 使用了优化后的 `requirements.txt` 文件（包含版本范围而非固定版本）
+- `runtime.txt` 指定了Python 3.11版本
+- `packages.txt` 包含了必要的系统依赖
+
+常见问题解决：
+- **tiktoken编译错误**: 已在requirements.txt中使用兼容版本范围
+- **Python版本不兼容**: runtime.txt指定使用Python 3.11
+- **依赖冲突**: 使用灵活的版本范围避免严格锁定
+
 ### 本地运行
 
 1. 克隆仓库：
@@ -55,11 +67,19 @@ streamlit run main.py
 4. 等待AI生成答案
 5. 查看历史对话记录
 
+## 配置文件说明
+
+- `requirements.txt`: Python依赖包（使用版本范围确保兼容性）
+- `runtime.txt`: 指定Python版本为3.11
+- `packages.txt`: 系统级依赖包
+- `.streamlit/config.toml`: Streamlit应用配置
+
 ## 注意事项
 
 - 需要有效的OpenAI API密钥
 - 支持的文件格式：PDF
 - 建议上传的PDF文件大小不超过10MB
+- 部署时会自动安装所有必要依赖
 
 ## 许可证
 
